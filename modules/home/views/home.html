@@ -1,18 +1,27 @@
-﻿<p><a href="#/login">Logout</a></p>
+﻿
+<div class="navbar">
+    <a href="#">Home</a>
+    <a href="#/login">Logout</a>
+  </div>
 <h1>Home</h1>
 <p>ATM locator</p>
 <input type="text" ng-model="busqueda"/> 
 <input type="button" value="Get ATM" ng-click="GetATM()" />
 <br/>Advanced options: <input type="checkbox" ng-model="checked" ng-click="advanced()" aria-label="Toggle ngShow"><br />
 <div class="check-element animate-show-hide"ng-model="checkelement" ng-show="checked">
-    <input type="checkbox" ng-model="checkboxModel.street"><label>Street</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.housenumber"></label>Number</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.postalcode"></label>Zip</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.city"></label>City</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.lat"></label>Lat</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.lng"></label>Long</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.distance"></label>Distance</label><br/>
-    <input type="checkbox" ng-model="checkboxModel.type"></label>Type</label><br/>
+    <table>
+        <tr>
+            <td><input type="checkbox" ng-model="checkboxModel.street"></td><td>Street</td><td>&nbsp&nbsp</td>
+            <td><input type="checkbox" ng-model="checkboxModel.housenumber"></td><td>Number</td><td>&nbsp&nbsp</td>
+            <td><input type="checkbox" ng-model="checkboxModel.postalcode"></td><td>Zip</td><td>&nbsp&nbsp</td>
+            <td><input type="checkbox" ng-model="checkboxModel.city"></td><td>City</td><td>&nbsp&nbsp</td>
+        </tr><tr>
+            <td><input type="checkbox" ng-model="checkboxModel.lat"></td><td>Lat</td><td>&nbsp&nbsp</td>
+            <td><input type="checkbox" ng-model="checkboxModel.lng"></td><td>Long</td><td>&nbsp&nbsp</td>
+            <td><input type="checkbox" ng-model="checkboxModel.distance"></td><td>Distance</td><td>&nbsp&nbsp</td>
+            <td><input type="checkbox" ng-model="checkboxModel.type"></td><td>Type</td><td>&nbsp&nbsp</td>
+        </tr>
+    </table>
 </div>
 <div >
     <hr />
@@ -42,10 +51,10 @@
                 <td>{{m.address.housenumber}}</td>
                 <td>{{m.address.postalcode}}</td>
                 <td>{{m.address.city}}</td>
-                <td>{{m.address.lat}}</td>
-                <td>{{m.address.lng}}</td>
-                <td>{{m.address.distance}}</td>
-                <td>{{m.address.type}}</td>
+                <td>{{m.address.geoLocation.lat}}</td>
+                <td>{{m.address.geoLocation.lng}}</td>
+                <td>{{m.distance}}</td>
+                <td>{{m.type}}</td>
             </tr>
         </tbody>
     </table>
