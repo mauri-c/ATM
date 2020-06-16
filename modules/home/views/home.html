@@ -1,0 +1,52 @@
+﻿<p><a href="#/login">Logout</a></p>
+<h1>Home</h1>
+<p>ATM locator</p>
+<input type="text" ng-model="busqueda"/> 
+<input type="button" value="Get ATM" ng-click="GetATM()" />
+<br/>Advanced options: <input type="checkbox" ng-model="checked" ng-click="advanced()" aria-label="Toggle ngShow"><br />
+<div class="check-element animate-show-hide"ng-model="checkelement" ng-show="checked">
+    <input type="checkbox" ng-model="checkboxModel.street"><label>Street</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.housenumber"></label>Number</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.postalcode"></label>Zip</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.city"></label>City</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.lat"></label>Lat</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.lng"></label>Long</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.distance"></label>Distance</label><br/>
+    <input type="checkbox" ng-model="checkboxModel.type"></label>Type</label><br/>
+</div>
+<div >
+    <hr />
+    <table class="blueTable">
+        <thead>
+            <tr>
+                <th>Street</th>
+                <th>Number</th>
+                <th>Zip</th>
+                <th>City</th>
+                <th>Lat</th>
+                <th>Long</th>
+                <th>Distance</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+            <td colspan="8">
+            <div class="links"></div>
+            </td>
+            </tr>
+        </tfoot>
+        <tbody ng-repeat="m in atms">
+            <tr>
+                <td>{{m.address.street}}</td>
+                <td>{{m.address.housenumber}}</td>
+                <td>{{m.address.postalcode}}</td>
+                <td>{{m.address.city}}</td>
+                <td>{{m.address.lat}}</td>
+                <td>{{m.address.lng}}</td>
+                <td>{{m.address.distance}}</td>
+                <td>{{m.address.type}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
